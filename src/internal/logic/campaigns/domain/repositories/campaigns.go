@@ -5,6 +5,7 @@ import (
 )
 
 type CampaignsRepository interface {
-	FindAll() (res []*models.CampaignModel, err error)
-	FindAllByBranchId(branchId string) (res []*models.CampaignModel, err error)
+	FindAll() (res []*models.Campaigns, err error)
+	FindAllByBranchId(branchId string) (res []*models.Campaigns, err error)
+	FindOneByBranchId(branchId string) (res *models.Campaigns, err error)
 }

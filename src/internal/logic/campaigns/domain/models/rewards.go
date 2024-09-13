@@ -1,6 +1,6 @@
 package models
 
-type RewardsModel struct {
+type Rewards struct {
 	Id          string `json:"id"`
 	UserID      string `json:"user_id"`
 	BrachID     string `json:"branch_id"`

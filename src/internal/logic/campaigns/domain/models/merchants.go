@@ -1,6 +1,6 @@
 package models
 
-type MerchantsModel struct {
+type Merchants struct {
 	Id          string `json:"id"`
 	Name        string `json:"name"`
 	Description string `json:"description"`

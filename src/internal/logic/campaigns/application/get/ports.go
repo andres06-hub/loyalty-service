@@ -8,6 +8,6 @@ type (
 	}
 
 	getCampaigns interface {
-		GetAll(branchId string) (res []*models.CampaignModel, err error)
+		GetAll(branchId string) (res []*models.Campaigns, err error)
 	}
 )

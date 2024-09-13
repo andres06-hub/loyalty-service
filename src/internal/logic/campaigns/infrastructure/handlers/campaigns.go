@@ -2,13 +2,11 @@ package adapters
 
 import (
 	"net/http"
+	"time"
 
 	get "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/get"
-	httpResponse "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/http/response"
 	"github.com/andres06-hub/loyalty-service/src/internal/svc"
 )
-
-type CampaignsHandler struct{}
 
 func GetCampaignsHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -17,16 +15,18 @@ func GetCampaignsHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 		l := get.NewGetCampeings(r.Context(), ctx)
 		rp, err := l.GetAll(branchId)
 		if err != nil {
-			res := httpResponse.NewAPIErrorResponse().
+			ctx.Http.Responses.Error.
+				WithTimestamp(int64(time.Now().Unix())).
 				WithMessage(err.Error()).
-				WithCode(http.StatusInternalServerError)
-			httpResponse.JSONResponse(w, res)
+				WithCode(http.StatusInternalServerError).
+				Build(w)
 			return
 		}
 
-		res := httpResponse.NewAPISuccesResponse().
+		ctx.Http.Responses.Success.
+			WithTimestamp(int64(time.Now().Unix())).
 			SetData(rp).
-			WithMessage("campaigns found")
-		httpResponse.JSONResponse(w, res)
+			WithMessage("campaigns found").
+			Build(w)
 	}
 }

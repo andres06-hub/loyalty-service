@@ -1,6 +1,6 @@
 package models
 
-type PurchasesModel struct {
+type Purchases struct {
 	Id             string `json:"id"`
 	UserId         string `json:"user_id"`
 	BranchId       string `json:"branch_id"`

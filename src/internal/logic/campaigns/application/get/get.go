@@ -19,7 +19,7 @@ func NewGetCampeings(ctx context.Context, svcCtx *svc.ServiceContext) GetCampaig
 	}
 }
 
-func (g *get) GetAll(branchId string) (res []*models.CampaignModel, err error) {
+func (g *get) GetAll(branchId string) (res []*models.Campaigns, err error) {
 	if branchId == "" {
 		res, err = g.svcCtx.Campaings.CampaignsRepositories.FindAll()
 		if err != nil {
@@ -32,5 +32,6 @@ func (g *get) GetAll(branchId string) (res []*models.CampaignModel, err error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return res, nil
 }

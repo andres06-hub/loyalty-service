@@ -18,7 +18,7 @@ func NewCampaignsRepository(dbConnection *gorm.DB) campRpt.CampaignsRepository {
 	}
 }
 
-func (c *CampaignsRepository) FindAll() (res []*models.CampaignModel, err error) {
+func (c *CampaignsRepository) FindAll() (res []*models.Campaigns, err error) {
 	err = c.db.Raw("SELECT * FROM campaigns").Scan(&res).Error
 	if err != nil {
 		return nil, fmt.Errorf("error finding campaigns")
@@ -26,7 +26,7 @@ func (c *CampaignsRepository) FindAll() (res []*models.CampaignModel, err error)
 	return res, nil
 }
 
-func (c *CampaignsRepository) FindAllByBranchId(campaingId string) (res []*models.CampaignModel, err error) {
+func (c *CampaignsRepository) FindAllByBranchId(campaingId string) (res []*models.Campaigns, err error) {
 	err = c.db.Raw("SELECT * FROM campaigns WHERE branch_id = ?", campaingId).Scan(&res).Error
 	if err != nil {
 		return nil, fmt.Errorf("error finding campaign with branch_id: %s", campaingId)
@@ -34,6 +34,19 @@ func (c *CampaignsRepository) FindAllByBranchId(campaingId string) (res []*model
 
 	if res == nil {
 		return nil, fmt.Errorf("campaign not found with branch_id: %s", campaingId)
+	}
+
+	return res, nil
+}
+
+func (c *CampaignsRepository) FindOneByBranchId(branchId string) (res *models.Campaigns, err error) {
+	err = c.db.Raw("SELECT * FROM campaigns WHERE branch_id = ?", branchId).Scan(&res).Error
+	if err != nil {
+		return nil, fmt.Errorf("error finding campaign with branch_id: %s", branchId)
+	}
+
+	if res == nil {
+		return nil, fmt.Errorf("campaign not found with branch_id: %s", branchId)
 	}
 
 	return res, nil
