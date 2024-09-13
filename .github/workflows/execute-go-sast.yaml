@@ -1,0 +1,36 @@
+name: Golang SAST scan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # This job uses "gosec" to do a SAST analysis of Go code. Severity of warnings and the limit of tolerated issues can be configured as secrets, either repository secrets or organization secrets.
+  golang-sast-analysis:
+    runs-on: ubuntu-latest
+    env:
+      SEVERITY: ${{ secrets.SEVERITY }}
+      LIMIT_ISSUES: ${{ secrets.LIMIT_ISSUES }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: List contents of current directory (checkout files optional verification)
+        run: ls -lA
+      - name: Run Gosec Security Scanner # SAST Scan for Go
+        uses: securego/gosec@master
+        with:
+          args: '-no-fail -fmt=json -out=results.json -verbose=text ./...'
+        # The following step is the "meat" of the SAST analysis (the main analysis step). Uses the JSON file and some GNU Core Tools to determine the ammount of errors and their severity. Currently it is possible to configure any severity but just for one type specified by a configured secret. Ideally we should be able to configure multiple levels of severity, like from MEDIUM TO CRITIAL or a similar kind of more flexible policies using the most idiomatic SHELL code that we can.
+      - name: 'Evaluate gosec results'
+        run: |
+          echo "Show SAST analysis results in JSON format"
+          cat results.json
+          NUMBER_ISSUES=$(cat results.json | grep severity | grep $SEVERITY | wc -l)
+          echo -e "Number of issues found in the analysis (with the configured severity): $NUMBER_ISSUES"
+          echo "check if issues are greater than tolerated issues"
+          if [ $NUMBER_ISSUES -gt $LIMIT_ISSUES ]; 
+          then 
+            echo "::error title='More Security Issues with the configured Severity and Amount were found than the Amount and Severity of issues tolerated by the SAST configured policy'"
+            exit 1; 
+          fi
