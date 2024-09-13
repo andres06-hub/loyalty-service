@@ -1,0 +1,32 @@
+version: '3.8'
+
+volumes:
+  postgres-local:
+    driver: local
+services:
+  db:
+    image: postgres
+    container_name: database-pg-local
+    restart: always
+    volumes:
+      - postgres-local:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${APP_DATABASE_PASSWORD}
+      POSTGRES_DB: ${APP_DATABASE_NAME}
+      POSTGRES_USER: ${APP_DATABASE_USER}
+    ports:
+      - ${APP_DATABASE_PORT}:5432
+  # server:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: server-local
+  #   # restart: always
+  #   # volumes:
+  #   #   - .:/app
+  #   ports:
+  #     - 8888:8888
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     DATABASE_URL: postgres://${APP_DATABASE_USER}:${APP_DATABASE_PASSWORD}@db:${APP_DATABASE_PORT}/${APP_DATABASE_NAME}
