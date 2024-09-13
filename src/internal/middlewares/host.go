@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	httpResponse "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/http/response"
+	httpResponse "github.com/andres06-hub/loyalty-service/src/internal/shared/http/response"
 )
 
 type MiddlewareOrigin struct{}

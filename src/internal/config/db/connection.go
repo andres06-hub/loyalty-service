@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"os"
 
 	_ "github.com/joho/godotenv/autoload"
@@ -14,6 +15,7 @@ var instanceDB *gorm.DB
 func GetConnectDB() (*gorm.DB, error) {
 
 	if instanceDB != nil {
+		fmt.Println("Using the same connection")
 		return instanceDB, nil
 	}
 
