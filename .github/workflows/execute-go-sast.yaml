@@ -9,9 +9,6 @@ jobs:
   # This job uses "gosec" to do a SAST analysis of Go code. Severity of warnings and the limit of tolerated issues can be configured as secrets, either repository secrets or organization secrets.
   golang-sast-analysis:
     runs-on: ubuntu-latest
-    env:
-      SEVERITY: ${{ secrets.SEVERITY }}
-      LIMIT_ISSUES: ${{ secrets.LIMIT_ISSUES }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
