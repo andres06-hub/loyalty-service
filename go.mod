@@ -5,6 +5,7 @@ go 1.22.3
 require (
 	github.com/golang-migrate/migrate/v4 v4.18.1
 	github.com/joho/godotenv v1.5.1
+	github.com/pasztorpisti/qs v0.0.0-20171216220353-8d6c33ee906c
 	github.com/zeromicro/go-zero v1.7.2
 	gorm.io/driver/postgres v1.5.9
 	gorm.io/gorm v1.25.12

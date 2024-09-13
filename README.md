@@ -1,1 +1,1 @@
-# jtp-controlplane-service
+# loyalty-service
