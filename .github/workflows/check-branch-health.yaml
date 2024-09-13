@@ -1,0 +1,36 @@
+name: check-branch-health
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.22.x'
+          cache: false
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.22.3
+      - name: Run linter
+        run: golangci-lint run ./src/... --timeout 5m
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.22.x'
+          cache: false
+      - name: Run unit tests
+        run: |
+          go test -v -test.short -p=1 -run "^*__Unit" ./src/test/...
