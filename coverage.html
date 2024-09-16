@@ -1,0 +1,1566 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>docs: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">github.com/andres06-hub/loyalty-service/src/docs/docs.go (0.0%)</option>
+				
+				<option value="file1">github.com/andres06-hub/loyalty-service/src/internal/config/db/connection.go (0.0%)</option>
+				
+				<option value="file2">github.com/andres06-hub/loyalty-service/src/internal/handler/routes.go (0.0%)</option>
+				
+				<option value="file3">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/get/get.go (80.0%)</option>
+				
+				<option value="file4">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/update/update.go (85.7%)</option>
+				
+				<option value="file5">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/deps.go (100.0%)</option>
+				
+				<option value="file6">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/handlers/get.go (75.0%)</option>
+				
+				<option value="file7">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/handlers/update.go (69.2%)</option>
+				
+				<option value="file8">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/repositories/campaigns.go (55.9%)</option>
+				
+				<option value="file9">github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/routes.go (0.0%)</option>
+				
+				<option value="file10">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/application/accumulate.go (69.0%)</option>
+				
+				<option value="file11">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/application/redeem.go (75.0%)</option>
+				
+				<option value="file12">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/deps.go (100.0%)</option>
+				
+				<option value="file13">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/handlers/redeem.go (66.7%)</option>
+				
+				<option value="file14">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/handlers/rewards.go (66.7%)</option>
+				
+				<option value="file15">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/repositories/branches.go (75.0%)</option>
+				
+				<option value="file16">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/repositories/purchases.go (85.7%)</option>
+				
+				<option value="file17">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/repositories/redemptiontransaction.go (83.3%)</option>
+				
+				<option value="file18">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/repositories/rewards.go (60.9%)</option>
+				
+				<option value="file19">github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/routes.go (0.0%)</option>
+				
+				<option value="file20">github.com/andres06-hub/loyalty-service/src/internal/middlewares/host.go (3.7%)</option>
+				
+				<option value="file21">github.com/andres06-hub/loyalty-service/src/internal/shared/http/parsers/body.go (50.0%)</option>
+				
+				<option value="file22">github.com/andres06-hub/loyalty-service/src/internal/shared/http/parsers/params.go (0.0%)</option>
+				
+				<option value="file23">github.com/andres06-hub/loyalty-service/src/internal/shared/http/response/builder.go (69.2%)</option>
+				
+				<option value="file24">github.com/andres06-hub/loyalty-service/src/internal/shared/http/response/core.go (60.0%)</option>
+				
+				<option value="file25">github.com/andres06-hub/loyalty-service/src/internal/svc/http.go (100.0%)</option>
+				
+				<option value="file26">github.com/andres06-hub/loyalty-service/src/internal/svc/middlewares.go (100.0%)</option>
+				
+				<option value="file27">github.com/andres06-hub/loyalty-service/src/internal/svc/servicecontext.go (100.0%)</option>
+				
+				<option value="file28">github.com/andres06-hub/loyalty-service/src/main.go (0.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">// Package docs Code generated by swaggo/swag. DO NOT EDIT
+package docs
+
+import "github.com/swaggo/swag"
+
+const docTemplate = `{
+    "schemes": {{ marshal .Schemes }},
+    "swagger": "2.0",
+    "info": {
+        "description": "{{escape .Description}}",
+        "title": "{{.Title}}",
+        "contact": {},
+        "version": "{{.Version}}"
+    },
+    "host": "{{.Host}}",
+    "basePath": "{{.BasePath}}",
+    "paths": {
+        "/campaigns": {
+            "get": {
+                "description": "Get all campaigns",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "campaigns"
+                ],
+                "summary": "Get all campaigns",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}`
+
+// SwaggerInfo holds exported Swagger Info so clients can modify it
+var SwaggerInfo = &amp;swag.Spec{
+        Version:          "1.0",
+        Host:             "",
+        BasePath:         "",
+        Schemes:          []string{},
+        Title:            "Loyalty Service API Documentation",
+        Description:      "Esta es la documentación de la API de Loyalty Service para\n* Development Server: http://{host}:{port}/api/",
+        InfoInstanceName: "swagger",
+        SwaggerTemplate:  docTemplate,
+        LeftDelim:        "{{",
+        RightDelim:       "}}",
+}
+
+func init() <span class="cov0" title="0">{
+        swag.Register(SwaggerInfo.InstanceName(), SwaggerInfo)
+}</span>
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package db
+
+import (
+        "fmt"
+        "os"
+
+        _ "github.com/joho/godotenv/autoload"
+        "gorm.io/driver/postgres"
+        "gorm.io/gorm"
+)
+
+// Singleton pattern
+var instanceDB *gorm.DB
+
+func GetConnectDB() (*gorm.DB, error) <span class="cov0" title="0">{
+
+        if instanceDB != nil </span><span class="cov0" title="0">{
+                fmt.Println("Using the same connection")
+                return instanceDB, nil
+        }</span>
+
+        <span class="cov0" title="0">dbUri := os.Getenv("DATABASE_URL")
+
+        instanceDB, err := gorm.Open(postgres.Open(dbUri), &amp;gorm.Config{
+                FullSaveAssociations: true,
+        })
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">sqlDB, err := instanceDB.DB()
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">sqlDB.SetMaxOpenConns(100)
+
+        return instanceDB, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package handler
+
+import (
+        "net/http"
+
+        docs "github.com/andres06-hub/loyalty-service/src/docs"
+        campaigns "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure"
+        rewards "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc" // Swagger handler
+        "github.com/zeromicro/go-zero/rest"
+)
+
+const apiPrefix = "/api"
+
+func RegisterHandlers(server *rest.Server, ctx *svc.ServiceContext) <span class="cov0" title="0">{
+        var routes []rest.Route
+        routes = append(routes, campaigns.GetCampaignsRoutes(ctx)...)
+        routes = append(routes, rewards.GetRewardsRoutes(ctx)...)
+
+        docs.SwaggerInfo.BasePath = apiPrefix
+
+        routes = append(routes, rest.Route{
+                Method: "GET",
+                Path:   "/swagger/*",
+                // Handler: httpSwagger.WrapHandler,
+                Handler: http.HandlerFunc(http.StripPrefix("/swagger/", http.FileServer(http.Dir("swagger"))).ServeHTTP),
+        })
+
+        for _, route := range routes </span><span class="cov0" title="0">{
+                route.Path = apiPrefix + route.Path
+                server.AddRoute(route)
+        }</span>
+}
+
+// func test() http.HandlerFunc {
+//         return func(w http.ResponseWriter, r *http.Request) {
+//                 var x interface{} = "Hello World"
+//                 w.WriteHeader(200)
+//                 w.Header().Set("Content-Type", "application/json")
+
+//                 if err := json.NewEncoder(w).Encode(x); err != nil {
+//                         fmt.Println("json encoding error", err)
+//                         http.Error(w, err.Error(), http.StatusInternalServerError)
+//                 }
+//         }
+// }
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package get
+
+import (
+        "context"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/models"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+type get struct {
+        ctx    context.Context
+        svcCtx *svc.ServiceContext
+}
+
+func NewGetCampeings(ctx context.Context, svcCtx *svc.ServiceContext) GetCampaignsWrapper <span class="cov8" title="1">{
+        return &amp;get{
+                ctx:    ctx,
+                svcCtx: svcCtx,
+        }
+}</span>
+
+func (g *get) GetAll(branchId string) (res []*models.Campaigns, err error) <span class="cov8" title="1">{
+        if branchId == "" </span><span class="cov8" title="1">{
+                res, err = g.svcCtx.Campaings.CampaignsRepositories.FindAll()
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+                <span class="cov8" title="1">return res, nil</span>
+        }
+
+        <span class="cov8" title="1">res, err = g.svcCtx.Campaings.CampaignsRepositories.FindAllByBranchId(branchId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return res, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package update
+
+import (
+        "context"
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/models"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+type update struct {
+        ctx    context.Context
+        svcCtx *svc.ServiceContext
+}
+
+func NewUpdate(ctx context.Context, svcCtx *svc.ServiceContext) Update <span class="cov8" title="1">{
+        return &amp;update{
+                ctx:    ctx,
+                svcCtx: svcCtx,
+        }
+}</span>
+
+func (u *update) Update(campaignId string, data UpdateCampaignDto) (res *models.Campaigns, err error) <span class="cov8" title="1">{
+        res, err = u.svcCtx.Campaings.CampaignsRepositories.FindOneById(campaignId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">startDate, _ := time.Parse("2006-01-02", data.StartDate)
+        endDate, _ := time.Parse("2006-01-02", data.EndDate)
+
+        res.StartDate = startDate
+        res.EndDate = endDate
+        res.BonusType = data.BonusType
+        res.BonusValue = data.BonusValue
+
+        res, err = u.svcCtx.Campaings.CampaignsRepositories.Update(res)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return res, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package campaigns
+
+import (
+        campaignPort "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/repositories"
+        campaignsRepository "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/repositories"
+        "gorm.io/gorm"
+)
+
+type CampaignsDependencies struct {
+        CampaignsRepositories campaignPort.CampaignsRepository
+}
+
+func GetCampaignsDependencies(conn *gorm.DB) *CampaignsDependencies <span class="cov8" title="1">{
+        return &amp;CampaignsDependencies{
+                CampaignsRepositories: campaignsRepository.NewCampaignsRepository(conn),
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package handlers
+
+import (
+        "net/http"
+        "time"
+
+        get "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/get"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+// @Tags                        campaigns
+// @Router                        /campaigns [get]
+// @Summary                Get all campaigns
+// @Description        Get all campaigns
+// @Accept                        json
+// @Success                200        {object}        string        "Ok"
+// @Failure                400        {object}        string        "Bad Request"
+// @Failure                401        {object}        string        "Unauthorized"
+// @Failure                503        {object}        string        "Service Unavailable"
+func GetCampaignsHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="cov8" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                branchId := r.URL.Query().Get("branchId")
+
+                l := get.NewGetCampeings(r.Context(), ctx)
+                rp, err := l.GetAll(branchId)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusInternalServerError).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">ctx.Http.Responses.Success.
+                        WithTimestamp(int64(time.Now().Unix())).
+                        SetData(rp).
+                        WithMessage("campaigns found").
+                        Build(w)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package handlers
+
+import (
+        "fmt"
+        "net/http"
+        "time"
+
+        update "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/update"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+func UpdateCampaignHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="cov8" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                body := &amp;update.UpdateCampaignDto{}
+                campaignId := "bdbc9716-217b-427e-80d0-a1e5f09bd3c4"
+                // var params struct {
+                //         CampaignId string `path:"campaignId"`
+                // }
+
+                if err := ctx.Http.Parsers.Body.Parse(r, &amp;body); err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusBadRequest).
+                                Build(w)
+                        return
+                }</span>
+                <span class="cov8" title="1">fmt.Println("BODY:::", body)
+
+                // err := httpx.Parse(r, &amp;params)
+                // if err != nil {
+                //         ctx.Http.Responses.Error.
+                //                 WithTimestamp(int64(time.Now().Unix())).
+                //                 WithMessage(err.Error()).
+                //                 WithCode(http.StatusBadRequest).
+                //                 Build(w)
+                //         return
+                // }
+
+                // if params.CampaignId == "" {
+                //         ctx.Http.Responses.Error.
+                //                 WithTimestamp(int64(time.Now().Unix())).
+                //                 WithMessage("Missing campaignId parameter").
+                //                 WithCode(http.StatusBadRequest).
+                //                 Build(w)
+                //         return
+                // }
+                // fmt.Println("PARAMS:::", params)
+
+                l := update.NewUpdate(r.Context(), ctx)
+                res, err := l.Update(campaignId, *body)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusInternalServerError).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">ctx.Http.Responses.Success.
+                        WithTimestamp(int64(time.Now().Unix())).
+                        SetData(res).
+                        WithMessage("campaign update").
+                        Build(w)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">package repositories
+
+import (
+        "fmt"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/models"
+        campRpt "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/repositories"
+        "gorm.io/gorm"
+)
+
+type CampaignsRepository struct {
+        db *gorm.DB
+}
+
+func NewCampaignsRepository(dbConnection *gorm.DB) campRpt.CampaignsRepository <span class="cov8" title="1">{
+        return &amp;CampaignsRepository{
+                db: dbConnection,
+        }
+}</span>
+
+func (c *CampaignsRepository) FindAll() (res []*models.Campaigns, err error) <span class="cov8" title="1">{
+        err = c.db.Raw("SELECT * FROM campaigns").Scan(&amp;res).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error finding campaigns")
+        }</span>
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (c *CampaignsRepository) FindAllByBranchId(campaingId string) (res []*models.Campaigns, err error) <span class="cov8" title="1">{
+        err = c.db.Raw("SELECT * FROM campaigns WHERE branch_id = ?", campaingId).Scan(&amp;res).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error finding campaign with branch_id: %s", campaingId)
+        }</span>
+
+        <span class="cov8" title="1">if res == nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("campaign not found with branch_id: %s", campaingId)
+        }</span>
+
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (c *CampaignsRepository) FindOneByBranchId(branchId string) (res *models.Campaigns, err error) <span class="cov8" title="1">{
+        err = c.db.Raw("SELECT * FROM campaigns WHERE branch_id = ?", branchId).Scan(&amp;res).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error finding campaign with branch_id: %s", branchId)
+        }</span>
+
+        <span class="cov8" title="1">if res == nil </span><span class="cov0" title="0">{
+                fmt.Printf("campaign not found with branch_id: %s", branchId)
+                return nil, nil
+        }</span>
+
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (c *CampaignsRepository) FindOneByBranchIdAndDates(branchID, nowDate string) (res *models.Campaigns, err error) <span class="cov0" title="0">{
+        err = c.db.Where("branch_id = ? AND start_date &lt;= ? AND end_date &gt;= ?", branchID, nowDate, nowDate).First(&amp;res).Error
+        if err != nil </span><span class="cov0" title="0">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                        return nil, gorm.ErrRecordNotFound
+                }</span>
+                <span class="cov0" title="0">return nil, fmt.Errorf("error finding campaign with branch_id: %s", branchID)</span>
+        }
+        <span class="cov0" title="0">return res, nil</span>
+}
+
+func (c *CampaignsRepository) FindOneById(id string) (res *models.Campaigns, err error) <span class="cov8" title="1">{
+        err = c.db.Raw("SELECT * FROM campaigns WHERE id = ?", id).Scan(&amp;res).Error
+        if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error finding campaign")
+        }</span>
+
+        <span class="cov8" title="1">if res == nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("campaign not found")
+        }</span>
+
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (c *CampaignsRepository) Update(data *models.Campaigns) (res *models.Campaigns, err error) <span class="cov8" title="1">{
+        err = c.db.Model(&amp;models.Campaigns{}).Where("id = ?", data.Id).Updates(map[string]interface{}{
+                "branch_id":    data.BranchId,
+                "start_date":   data.StartDate,
+                "end_date":     data.EndDate,
+                "bonus_type":   data.BonusType,
+                "bonus_value":  data.BonusValue,
+                "min_purchase": data.MinPurchase,
+        }).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error updating campaign")
+        }</span>
+
+        <span class="cov8" title="1">return data, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package logic
+
+import (
+        h "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/handlers"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+        "github.com/zeromicro/go-zero/rest"
+)
+
+func GetCampaignsRoutes(ctx *svc.ServiceContext) []rest.Route <span class="cov0" title="0">{
+        return []rest.Route{
+                {
+                        Method: "GET",
+                        Path:   "/campaigns",
+                        Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+                                h.GetCampaignsHandler(ctx),
+                        ),
+                },
+                {
+                        Method: "PUT",
+                        Path:   "/campaigns/:campaignId",
+                        Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+                                h.UpdateCampaignHandler(ctx),
+                        ),
+                },
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">package application
+
+import (
+        "context"
+        "database/sql"
+        "errors"
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+        "gorm.io/gorm"
+)
+
+type accumulate struct {
+        ctx    context.Context
+        svcCtx *svc.ServiceContext
+}
+
+func NewAccumalateRewards(ctx context.Context, svcCtx *svc.ServiceContext) AccumulateRewardWrapper <span class="cov8" title="1">{
+        return &amp;accumulate{
+                ctx:    ctx,
+                svcCtx: svcCtx,
+        }
+}</span>
+
+func (a *accumulate) AccumulateReward(data *domain.RewardsDto) (*domain.RewardsAccumulateResponse, error) <span class="cov8" title="1">{
+        _, err := a.svcCtx.Rewards.BranchesRepository.FindOneById(data.BranchID)
+        if err != nil </span><span class="cov0" title="0">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                        return nil, errors.New("branch not found")
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+
+        // TOOD: validar y pasarlo mas a siemple responsability
+        <span class="cov8" title="1">campaign, err := a.svcCtx.Campaings.CampaignsRepositories.FindOneByBranchId(data.BranchID)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">currentDate := time.Now().Format("2006-01-02")
+
+        rewardEarned := 0.0
+        rewardType := "points"
+        campaignId := sql.NullString{Valid: false}
+
+        if campaign != nil </span><span class="cov8" title="1">{
+                // Validate if campaign is active
+                if currentDate &lt; campaign.StartDate.String() || currentDate &gt; campaign.EndDate.String() </span><span class="cov0" title="0">{
+                        return nil, errors.New("campaign not active")
+                }</span>
+                <span class="cov8" title="1">campaignId.Valid = true
+                campaignId.String = campaign.Id
+                if campaign.BonusType == "double" </span><span class="cov8" title="1">{
+                        rewardEarned = (float64(data.PurchaseAmount) / 1000) * campaign.BonusValue
+                }</span> else<span class="cov0" title="0"> if campaign.BonusType == "percentage" </span><span class="cov0" title="0">{
+                        if data.PurchaseAmount &gt; campaign.MinPurchase </span><span class="cov0" title="0">{
+                                rewardEarned = (float64(data.PurchaseAmount) / 1000) * (1 + campaign.BonusValue)
+                        }</span>
+                }
+        } else<span class="cov0" title="0"> {
+                rewardEarned = float64(data.PurchaseAmount) / 1000
+        }</span>
+
+        <span class="cov8" title="1">newData := &amp;models.Rewards{
+                UserID:      data.UserID,
+                BranchID:    data.BranchID,
+                RewardType:  rewardType,
+                RewardValue: rewardEarned,
+        }
+
+        res, err := a.svcCtx.Rewards.RewardsRepositories.FindOneByUserIdAndBranchId(data.UserID, data.BranchID)
+        if err != nil </span><span class="cov8" title="1">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov8" title="1">{
+                        _, err = a.svcCtx.Rewards.RewardsRepositories.CreateRewards(newData)
+                        if err != nil </span><span class="cov0" title="0">{
+                                return nil, err
+                        }</span>
+                } else<span class="cov0" title="0"> {
+                        return nil, err
+                }</span>
+        }
+
+        <span class="cov8" title="1">if res != nil </span><span class="cov8" title="1">{
+                res.RewardValue += rewardEarned
+                _, err = a.svcCtx.Rewards.RewardsRepositories.Update(res)
+                if err != nil </span><span class="cov0" title="0">{
+                        return nil, err
+                }</span>
+        }
+
+        <span class="cov8" title="1">purchaseData := &amp;models.Purchases{
+                UserId:         data.UserID,
+                BranchId:       data.BranchID,
+                PurchaseAmount: float64(data.PurchaseAmount),
+                RewardEarned:   rewardEarned,
+                RewardType:     rewardType,
+                CampaignId:     campaignId,
+        }
+
+        _, err = a.svcCtx.Rewards.PurchasesRepository.Create(purchaseData)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return &amp;domain.RewardsAccumulateResponse{
+                RewardEarned:    rewardEarned,
+                RewardType:      rewardType,
+                CampaignApplied: campaign != nil,
+        }, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">package application
+
+import (
+        "context"
+        "errors"
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
+        models "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+type reedem struct {
+        ctx    context.Context
+        svcCtx *svc.ServiceContext
+}
+
+func NewRedeemRewards(ctx context.Context, svcCtx *svc.ServiceContext) RedeemRewardWrapper <span class="cov8" title="1">{
+        return &amp;reedem{
+                ctx:    ctx,
+                svcCtx: svcCtx,
+        }
+}</span>
+
+func (r *reedem) RedeemReward(data *domain.RewardsRedeemDto) (*domain.RewardRedemptionResponse, error) <span class="cov8" title="1">{
+        reward, err := r.svcCtx.Rewards.RewardsRepositories.FindOne(data.UserID, data.BranchID, data.RewardType)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov8" title="1">data.RewardValue /= 1000
+
+        if reward.RewardValue &lt; data.RewardValue </span><span class="cov0" title="0">{
+                return nil, errors.New("insufficient reward balance")
+        }</span>
+
+        // Deduct the user's balance
+        <span class="cov8" title="1">reward.RewardValue -= data.RewardValue
+        _, err = r.svcCtx.Rewards.RewardsRepositories.Update(reward)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">transaction := &amp;models.RedemptionTransactions{
+                UserID:      data.UserID,
+                BranchID:    data.BranchID,
+                RewardType:  data.RewardType,
+                RewardValue: data.RewardValue,
+                CreatedAt:   time.Now().Format("2006-01-02 15:04:05.000 -0700"),
+        }
+
+        _, err = r.svcCtx.Rewards.RedemptionTransactionRepositories.Create(transaction)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return &amp;domain.RewardRedemptionResponse{
+                RewardType:     data.RewardType,
+                RewardRedeemed: data.RewardValue,
+                CurrentReward:  reward.RewardValue,
+        }, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">package rewards
+
+import (
+        rwPort "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/repositories"
+        repositories "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/repositories"
+        "gorm.io/gorm"
+)
+
+type RewardsDependencies struct {
+        RewardsRepositories               rwPort.RewardsRepository
+        RedemptionTransactionRepositories rwPort.RedemptionTransactionRepository
+        PurchasesRepository               rwPort.PurchasesRepository
+        BranchesRepository                rwPort.BranchesRepository
+}
+
+func GetRewardsDependencies(conn *gorm.DB) *RewardsDependencies <span class="cov8" title="1">{
+        return &amp;RewardsDependencies{
+                RewardsRepositories:               repositories.NewRewardsRepository(conn),
+                RedemptionTransactionRepositories: repositories.NewRedemptionTransactionRepository(conn),
+                PurchasesRepository:               repositories.NewPurchasesRepository(conn),
+                BranchesRepository:                repositories.NewBranchesRepository(conn),
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">package handlers
+
+import (
+        "fmt"
+        "net/http"
+        "time"
+
+        rw "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/application"
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+func RedeemRewardHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="cov8" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                data := &amp;domain.RewardsRedeemDto{}
+
+                err := ctx.Http.Parsers.Body.Parse(r, data)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusBadGateway).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">l := rw.NewRedeemRewards(r.Context(), ctx)
+                res, err := l.RedeemReward(data)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusInternalServerError).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">ctx.Http.Responses.Success.
+                        WithTimestamp(int64(time.Now().Unix())).
+                        SetData(res).
+                        WithMessage(fmt.Sprintf("%s redeemd", data.RewardType)).
+                        Build(w)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">package handlers
+
+import (
+        "net/http"
+        "time"
+
+        rw "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/application"
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+)
+
+func AccumulateRewardHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="cov8" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
+                data := &amp;domain.RewardsDto{}
+
+                err := ctx.Http.Parsers.Body.Parse(r, data)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusBadGateway).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">l := rw.NewAccumalateRewards(r.Context(), ctx)
+                res, err := l.AccumulateReward(data)
+                if err != nil </span><span class="cov0" title="0">{
+                        ctx.Http.Responses.Error.
+                                WithTimestamp(int64(time.Now().Unix())).
+                                WithMessage(err.Error()).
+                                WithCode(http.StatusInternalServerError).
+                                Build(w)
+                        return
+                }</span>
+
+                <span class="cov8" title="1">ctx.Http.Responses.Success.
+                        WithTimestamp(int64(time.Now().Unix())).
+                        SetData(res).
+                        WithMessage("Reward successfully accumulated").
+                        Build(w)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package repositories
+
+import (
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/domain/models"
+        repositories "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/repositories"
+        "gorm.io/gorm"
+)
+
+type BranchesRepository struct {
+        db *gorm.DB
+}
+
+func NewBranchesRepository(dbConnection *gorm.DB) repositories.BranchesRepository <span class="cov8" title="1">{
+        return &amp;BranchesRepository{
+                db: dbConnection,
+        }
+}</span>
+
+func (r *BranchesRepository) FindOneById(id string) (res *models.Branches, err error) <span class="cov8" title="1">{
+        if err = r.db.Where("id = ?", id).First(&amp;res).Error; err != nil </span><span class="cov0" title="0">{
+                return nil, gorm.ErrRecordNotFound
+        }</span>
+        <span class="cov8" title="1">return res, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file16" style="display: none">package repositories
+
+import (
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
+        repositories "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/repositories"
+        "github.com/google/uuid"
+        "gorm.io/gorm"
+)
+
+type PurchasesRepository struct {
+        db *gorm.DB
+}
+
+func NewPurchasesRepository(db *gorm.DB) repositories.PurchasesRepository <span class="cov8" title="1">{
+        return &amp;PurchasesRepository{
+                db: db,
+        }
+}</span>
+
+func (p *PurchasesRepository) Create(data *models.Purchases) (res *models.Purchases, err error) <span class="cov8" title="1">{
+        data.Id = uuid.New().String()
+        data.CreatedAt = time.Now().Format("2006-01-02 15:04:05.000 -0700")
+
+        err = p.db.Create(data).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return data, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file17" style="display: none">package repositories
+
+import (
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
+        rdRpt "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/repositories"
+        "github.com/google/uuid"
+        "gorm.io/gorm"
+)
+
+type RedemptionTransactionRepository struct {
+        db *gorm.DB
+}
+
+func NewRedemptionTransactionRepository(db *gorm.DB) rdRpt.RedemptionTransactionRepository <span class="cov8" title="1">{
+        return &amp;RedemptionTransactionRepository{
+                db: db,
+        }
+}</span>
+
+func (r *RedemptionTransactionRepository) Create(data *models.RedemptionTransactions) (res *models.RedemptionTransactions, err error) <span class="cov8" title="1">{
+        data.Id = uuid.New().String()
+
+        err = r.db.Create(data).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov8" title="1">return data, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file18" style="display: none">package repositories
+
+import (
+        "errors"
+        "fmt"
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
+        rwRpt "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/repositories"
+        "github.com/google/uuid"
+        "gorm.io/gorm"
+)
+
+type RewardsRepository struct {
+        db *gorm.DB
+}
+
+func NewRewardsRepository(dbConnection *gorm.DB) rwRpt.RewardsRepository <span class="cov8" title="1">{
+        return &amp;RewardsRepository{
+                db: dbConnection,
+        }
+}</span>
+
+func (r *RewardsRepository) FindOneByUserIdAndBranchId(userID string, branchID string) (res *models.Rewards, err error) <span class="cov8" title="1">{
+        if err = r.db.Where("user_id = ? AND branch_id = ?", userID, branchID).First(&amp;res).Error; err != nil </span><span class="cov8" title="1">{
+                return nil, gorm.ErrRecordNotFound
+        }</span>
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (r *RewardsRepository) CreateRewards(data *models.Rewards) (res *models.Rewards, err error) <span class="cov8" title="1">{
+        data.Id = uuid.New().String()
+        data.CreatedAt = time.Now().Format("2006-01-02 15:04:05.000 -0700")
+
+        err = r.db.Create(&amp;data).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error creating reward")
+        }</span>
+
+        <span class="cov8" title="1">return data, nil</span>
+}
+
+func (r *RewardsRepository) FindOneById(id string) (res *models.Rewards, err error) <span class="cov0" title="0">{
+        err = r.db.Raw("SELECT * FROM rewards WHERE id = ?", id).Scan(&amp;res).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error finding reward")
+        }</span>
+
+        <span class="cov0" title="0">if res == nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("reward not found")
+        }</span>
+
+        <span class="cov0" title="0">return res, nil</span>
+}
+
+func (r *RewardsRepository) FindOne(userID, branchID, rewardType string) (res *models.Rewards, err error) <span class="cov8" title="1">{
+        if err = r.db.Where("user_id = ? AND branch_id = ? AND reward_type = ?", userID, branchID, rewardType).First(&amp;res).Error; err != nil </span><span class="cov0" title="0">{
+                return nil, errors.New("reward balance not found")
+        }</span>
+        <span class="cov8" title="1">return res, nil</span>
+}
+
+func (r *RewardsRepository) Update(data *models.Rewards) (res *models.Rewards, err error) <span class="cov8" title="1">{
+        err = r.db.Model(&amp;models.Rewards{}).Where("id = ?", data.Id).Updates(map[string]interface{}{
+                "reward_value": data.RewardValue,
+        }).Error
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, fmt.Errorf("error updating reward")
+        }</span>
+
+        <span class="cov8" title="1">return data, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file19" style="display: none">package logic
+
+import (
+        h "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/infrastructure/handlers"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+        "github.com/zeromicro/go-zero/rest"
+)
+
+func GetRewardsRoutes(ctx *svc.ServiceContext) []rest.Route <span class="cov0" title="0">{
+        return []rest.Route{
+                {
+                        Method: "POST",
+                        Path:   "/rewards",
+                        Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+                                h.AccumulateRewardHandler(ctx),
+                        ),
+                },
+                {
+                        Method: "POST",
+                        Path:   "/rewards/redeem",
+                        Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+                                h.RedeemRewardHandler(ctx),
+                        ),
+                },
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file20" style="display: none">package middlewares
+
+import (
+        "net/http"
+        "os"
+        "strings"
+
+        httpResponse "github.com/andres06-hub/loyalty-service/src/internal/shared/http/response"
+)
+
+type MiddlewareOrigin struct{}
+
+func NewMiddlewareValidationPermissions() *MiddlewareOrigin <span class="cov8" title="1">{
+        return &amp;MiddlewareOrigin{}
+}</span>
+
+func (mpv *MiddlewareOrigin) IPValidatorMiddleware() func(next http.Handler) http.HandlerFunc <span class="cov0" title="0">{
+        return func(next http.Handler) http.HandlerFunc </span><span class="cov0" title="0">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                        allowedIPs := []string{
+                                "127.0.0.1:8888",
+                        }
+
+                        clientIP := r.RemoteAddr
+                        isAllowedIP := false
+                        for _, ip := range allowedIPs </span><span class="cov0" title="0">{
+                                if clientIP == ip </span><span class="cov0" title="0">{
+                                        isAllowedIP = true
+                                        break</span>
+                                }
+                        }
+                        <span class="cov0" title="0">if !isAllowedIP </span><span class="cov0" title="0">{
+                                res := httpResponse.NewAPIErrorResponse().
+                                        WithMessage("Access from this IP is not allowed").
+                                        WithCode(http.StatusForbidden)
+                                httpResponse.JSONResponse(w, res)
+                                return
+                        }</span>
+
+                        <span class="cov0" title="0">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+
+func (mpv *MiddlewareOrigin) HostValidatorMiddleware() func(next http.Handler) http.HandlerFunc <span class="cov0" title="0">{
+        return func(next http.Handler) http.HandlerFunc </span><span class="cov0" title="0">{
+                return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+
+                        if !mpv.isHostAllowed(r.Host) </span><span class="cov0" title="0">{
+                                res := httpResponse.NewAPIErrorResponse().
+                                        WithMessage("Host not allowed").
+                                        WithCode(http.StatusForbidden)
+                                httpResponse.JSONResponse(w, res)
+                                return
+                        }</span>
+
+                        <span class="cov0" title="0">next.ServeHTTP(w, r)</span>
+                })
+        }
+}
+
+func (mpv *MiddlewareOrigin) isHostAllowed(host string) bool <span class="cov0" title="0">{
+        allowedHost := strings.Split(os.Getenv("ALLOWED_HOSTS"), ",")
+
+        for _, h := range allowedHost </span><span class="cov0" title="0">{
+                if host == h </span><span class="cov0" title="0">{
+                        return true
+                }</span>
+        }
+
+        <span class="cov0" title="0">return false</span>
+}
+</pre>
+		
+		<pre class="file" id="file21" style="display: none">package parsers
+
+import (
+        "encoding/json"
+        "net/http"
+)
+
+type BodyParser struct{}
+
+func Body() Parser <span class="cov0" title="0">{
+        return &amp;BodyParser{}
+}</span>
+
+func (*BodyParser) Parse(ctx *http.Request, v interface{}) error <span class="cov8" title="1">{
+        return json.NewDecoder(ctx.Body).Decode(&amp;v)
+}</span>
+</pre>
+		
+		<pre class="file" id="file22" style="display: none">package parsers
+
+import (
+        "fmt"
+        "net/http"
+        "reflect"
+        "strconv"
+)
+
+type ParamsParser struct{}
+
+func Params() Parser <span class="cov0" title="0">{
+        return &amp;ParamsParser{}
+}</span>
+
+func (*ParamsParser) Parse(ctx *http.Request, schema any) (err error) <span class="cov0" title="0">{
+        if err = ctx.ParseForm(); err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">v := reflect.ValueOf(schema).Elem()
+        numFields := v.NumField()
+
+        for i := 0; i &lt; numFields; i++ </span><span class="cov0" title="0">{
+                field := v.Field(i)
+                fieldName := v.Type().Field(i).Name
+                formValue := ctx.FormValue(fieldName)
+
+                if formValue == "" </span><span class="cov0" title="0">{
+                        continue</span>
+                }
+
+                <span class="cov0" title="0">if field.CanSet() </span><span class="cov0" title="0">{
+                        switch field.Kind() </span>{
+                        case reflect.String:<span class="cov0" title="0">
+                                field.SetString(formValue)</span>
+                        case reflect.Int:<span class="cov0" title="0">
+                                intValue, err := strconv.Atoi(formValue)
+                                if err != nil </span><span class="cov0" title="0">{
+                                        return fmt.Errorf("invalid value for field %s: %v", fieldName, err)
+                                }</span>
+                                <span class="cov0" title="0">field.SetInt(int64(intValue))</span>
+                        default:<span class="cov0" title="0">
+                                return fmt.Errorf("unsupported field type: %s", field.Kind())</span>
+                        }
+                } else<span class="cov0" title="0"> {
+                        return fmt.Errorf("can't set field value: %s", fieldName)
+                }</span>
+        }
+
+        <span class="cov0" title="0">return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file23" style="display: none">package response
+
+import (
+        "net/http"
+        "time"
+)
+
+// APIResponse is the response structure for the API
+// swagger:model APIResponse
+type APIResponse struct {
+        Success   bool        `json:"success"`
+        Message   string      `json:"message"`
+        Code      int         `json:"code"`
+        Timestamp int64       `json:"timestamp"`
+        Data      interface{} `json:"data"`
+        // Localization l.Localization `json:"localization"`
+}
+
+func NewAPISuccesResponse() *APIResponse <span class="cov8" title="1">{
+        return &amp;APIResponse{
+                Success:   true,
+                Code:      http.StatusOK,
+                Timestamp: int64(time.Now().Unix()),
+        }
+}</span>
+
+func NewAPIErrorResponse() *APIResponse <span class="cov8" title="1">{
+        return &amp;APIResponse{
+                Success:   false,
+                Code:      http.StatusInternalServerError,
+                Timestamp: int64(time.Now().Unix()),
+                Data:      nil,
+        }
+}</span>
+
+func (a *APIResponse) SetData(data interface{}) *APIResponse <span class="cov8" title="1">{
+        a.Data = data
+        return a
+}</span>
+
+func (a *APIResponse) WithMessage(message string) *APIResponse <span class="cov8" title="1">{
+        a.Message = message
+        return a
+}</span>
+
+func (a *APIResponse) WithCode(code int) *APIResponse <span class="cov0" title="0">{
+        a.Code = code
+        return a
+}</span>
+
+func (a *APIResponse) WithTimestamp(timestamp int64) *APIResponse <span class="cov8" title="1">{
+        a.Timestamp = timestamp
+        return a
+}</span>
+
+func (a *APIResponse) WithSuccess(success bool) *APIResponse <span class="cov0" title="0">{
+        a.Success = success
+        return a
+}</span>
+
+func (a *APIResponse) Build(ctx http.ResponseWriter) <span class="cov8" title="1">{
+        JSONResponse(ctx, a)
+}</span>
+</pre>
+		
+		<pre class="file" id="file24" style="display: none">package response
+
+import (
+        "encoding/json"
+        "fmt"
+        "net/http"
+)
+
+func JSONResponse(ctx http.ResponseWriter, response *APIResponse) <span class="cov8" title="1">{
+        ctx.WriteHeader(response.Code)
+        ctx.Header().Set("Content-Type", "application/json")
+
+        if err := json.NewEncoder(ctx).Encode(response); err != nil </span><span class="cov0" title="0">{
+                fmt.Println("json encoding error", err)
+                http.Error(ctx, err.Error(), http.StatusInternalServerError)
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file25" style="display: none">package svc
+
+import (
+        "github.com/andres06-hub/loyalty-service/src/internal/shared/http/parsers"
+        httpResponse "github.com/andres06-hub/loyalty-service/src/internal/shared/http/response"
+)
+
+type Http struct {
+        Parsers   *Parsers
+        Responses *Responses
+}
+
+type Parsers struct {
+        Body   *parsers.BodyParser
+        Params *parsers.ParamsParser
+}
+
+type Responses struct {
+        Success *httpResponse.APIResponse
+        Error   *httpResponse.APIResponse
+}
+
+func GetHttp() *Http <span class="cov8" title="1">{
+        return &amp;Http{
+                Parsers: &amp;Parsers{
+                        Body:   &amp;parsers.BodyParser{},
+                        Params: &amp;parsers.ParamsParser{},
+                },
+                Responses: &amp;Responses{
+                        Success: httpResponse.NewAPISuccesResponse(),
+                        Error:   httpResponse.NewAPIErrorResponse(),
+                },
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file26" style="display: none">package svc
+
+import (
+        mdd "github.com/andres06-hub/loyalty-service/src/internal/middlewares"
+)
+
+type Middleware struct {
+        Host mdd.MiddlewareOrigin
+}
+
+func GetMiddleware() *Middleware <span class="cov8" title="1">{
+        return &amp;Middleware{
+                Host: *mdd.NewMiddlewareValidationPermissions(),
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file27" style="display: none">package svc
+
+import (
+        "github.com/andres06-hub/loyalty-service/src/internal/config"
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns"
+        "github.com/andres06-hub/loyalty-service/src/internal/logic/rewards"
+        "gorm.io/gorm"
+)
+
+type ServiceContext struct {
+        Config      config.Config
+        ConnDb      *gorm.DB
+        Middlewares *Middleware
+        Campaings   *campaigns.CampaignsDependencies
+        Rewards     *rewards.RewardsDependencies
+        Http        *Http
+}
+
+func NewServiceContext(c config.Config, conn *gorm.DB) *ServiceContext <span class="cov8" title="1">{
+        return &amp;ServiceContext{
+                Config:      c,
+                ConnDb:      conn,
+                Middlewares: GetMiddleware(),
+                Campaings:   campaigns.GetCampaignsDependencies(conn),
+                Rewards:     rewards.GetRewardsDependencies(conn),
+                Http:        GetHttp(),
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file28" style="display: none">package main
+
+import (
+        "flag"
+        "fmt"
+        "log"
+        "os"
+        "path/filepath"
+        "time"
+
+        "github.com/andres06-hub/loyalty-service/src/internal/config"
+        "github.com/andres06-hub/loyalty-service/src/internal/config/db"
+        "github.com/andres06-hub/loyalty-service/src/internal/handler"
+        "github.com/andres06-hub/loyalty-service/src/internal/svc"
+        "github.com/golang-migrate/migrate/v4"
+        _ "github.com/golang-migrate/migrate/v4/database/postgres"
+        _ "github.com/golang-migrate/migrate/v4/source/file"
+
+        "github.com/zeromicro/go-zero/core/conf"
+        "github.com/zeromicro/go-zero/rest"
+)
+
+var configFile = flag.String("f", "etc/definition.yaml", "the config file")
+var migrationsPath = flag.String("migrations", "../migrations", "the migrations folder")
+
+// var seederShPath = flag.String("seeders", "../run-seed.sh", "the seeders script")
+
+func runMigrations() <span class="cov0" title="0">{
+        dbUri := os.Getenv("DATABASE_URL")
+
+        absMigrationsPath, err := filepath.Abs(*migrationsPath)
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("Failed to get absolute path: %v", err)
+        }</span>
+        <span class="cov0" title="0">m, err := migrate.New(
+                fmt.Sprintf("file://%s", absMigrationsPath),
+                dbUri,
+        )
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("Migration failed: %v", err)
+        }</span>
+        <span class="cov0" title="0">if err := m.Up(); err != nil &amp;&amp; err != migrate.ErrNoChange </span><span class="cov0" title="0">{
+                log.Fatalf("Migration failed: %v", err)
+        }</span>
+        <span class="cov0" title="0">log.Println("Migration successful")</span>
+}
+
+// func runSeederScript() {
+//         absSeedPath, err := filepath.Abs(*seederShPath)
+//         if err != nil {
+//                 log.Fatalf("Failed to get absolute path: %v", err)
+//         }
+//         cmd := exec.Command("/bin/sh", absSeedPath, "dev")
+//         cmd.Stdout = os.Stdout
+//         cmd.Stderr = os.Stderr
+//         err = cmd.Run()
+//         if err != nil {
+//                 log.Printf("Error running seeder script: %v", err)
+//         } else {
+//                 log.Println("Seeder script completed successfully")
+//         }
+// }
+
+//        @title                        Loyalty Service API Documentation
+//        @version                1.0
+//        @description        Esta es la documentación de la API de Loyalty Service para 
+//        @description        * Development Server: http://{host}:{port}/api/
+
+// //@schemes                                        http https
+// //@query.collection.format        multi
+func main() <span class="cov0" title="0">{
+        flag.Parse()
+
+        if true </span><span class="cov0" title="0">{
+                runMigrations()
+        }</span>
+
+        <span class="cov0" title="0">var c config.Config
+        conf.MustLoad(*configFile, &amp;c)
+
+        conn, err := db.GetConnectDB()
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("Failed to connect to database: %v", err)
+        }</span>
+
+        <span class="cov0" title="0">ctx := svc.NewServiceContext(c, conn)
+        server := rest.MustNewServer(c.RestConf)
+        defer server.Stop()
+
+        handler.RegisterHandlers(server, ctx)
+
+        // fmt.Printf("Starting server at %s:%d\n", c.Host, c.Port)
+        // server.Start()
+        go func() </span><span class="cov0" title="0">{
+                fmt.Printf("Starting server at %s:%d\n", c.Host, c.Port)
+                server.Start()
+        }</span>()
+
+        <span class="cov0" title="0">time.Sleep(5 * time.Second)
+
+        // runSeederScript()
+
+        select </span>{}
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>
