@@ -15,12 +15,12 @@ func GetRewardsRoutes(ctx *svc.ServiceContext) []rest.Route {
 				h.AccumulateRewardHandler(ctx),
 			),
 		},
-		// {
-		// 	Method: "POST",
-		// 	Path:   "/rewards/redeem",
-		// 	Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
-		// 		h.RedeemRewardHandler(ctx),
-		// 	),
-		// },
+		{
+			Method: "POST",
+			Path:   "/rewards/redeem",
+			Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+				h.RedeemRewardHandler(ctx),
+			),
+		},
 	}
 }
