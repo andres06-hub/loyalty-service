@@ -11,7 +11,8 @@ type Http struct {
 }
 
 type Parsers struct {
-	Body *parsers.BodyParser
+	Body   *parsers.BodyParser
+	Params *parsers.ParamsParser
 }
 
 type Responses struct {
@@ -22,7 +23,8 @@ type Responses struct {
 func GetHttp() *Http {
 	return &Http{
 		Parsers: &Parsers{
-			Body: &parsers.BodyParser{},
+			Body:   &parsers.BodyParser{},
+			Params: &parsers.ParamsParser{},
 		},
 		Responses: &Responses{
 			Success: httpResponse.NewAPISuccesResponse(),
