@@ -46,8 +46,20 @@ func (c *CampaignsRepository) FindOneByBranchId(branchId string) (res *models.Ca
 	}
 
 	if res == nil {
-		return nil, fmt.Errorf("campaign not found with branch_id: %s", branchId)
+		fmt.Printf("campaign not found with branch_id: %s", branchId)
+		return nil, nil
 	}
 
+	return res, nil
+}
+
+func (c *CampaignsRepository) FindOneByBranchIdAndDates(branchID, nowDate string) (res *models.Campaigns, err error) {
+	err = c.db.Where("branch_id = ? AND start_date <= ? AND end_date >= ?", branchID, nowDate, nowDate).First(&res).Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, gorm.ErrRecordNotFound
+		}
+		return nil, fmt.Errorf("error finding campaign with branch_id: %s", branchID)
+	}
 	return res, nil
 }
