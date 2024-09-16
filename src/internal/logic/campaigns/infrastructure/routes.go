@@ -15,5 +15,12 @@ func GetCampaignsRoutes(ctx *svc.ServiceContext) []rest.Route {
 				h.GetCampaignsHandler(ctx),
 			),
 		},
+		{
+			Method: "PUT",
+			Path:   "/campaigns/:campaignId",
+			Handler: ctx.Middlewares.Host.HostValidatorMiddleware()(
+				h.UpdateCampaignHandler(ctx),
+			),
+		},
 	}
 }
