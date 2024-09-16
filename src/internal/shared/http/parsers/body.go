@@ -2,7 +2,6 @@ package parsers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -13,6 +12,5 @@ func Body() Parser {
 }
 
 func (*BodyParser) Parse(ctx *http.Request, v interface{}) error {
-	fmt.Println("#### BodyParser")
 	return json.NewDecoder(ctx.Body).Decode(&v)
 }
