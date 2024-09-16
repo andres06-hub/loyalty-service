@@ -1,7 +1,7 @@
 package domain
 
 type RewardsAccumulateResponse struct {
-	RewardsEarned   int
+	RewardsEarned   float64
 	RewardsType     string
 	CampaignApplied bool
 }

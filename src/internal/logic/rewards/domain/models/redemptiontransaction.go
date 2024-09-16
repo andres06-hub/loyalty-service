@@ -1,6 +1,6 @@
 package models
 
-type Rewards struct {
+type RedemptionTransactions struct {
 	Id          string  `gorm:"column:id;primaryKey" json:"id"`
 	UserID      string  `gorm:"column:user_id" json:"userId"`
 	BranchID    string  `gorm:"column:branch_id" json:"branchId"`
