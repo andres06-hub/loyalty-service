@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
@@ -18,6 +19,13 @@ func NewRewardsRepository(dbConnection *gorm.DB) rwRpt.RewardsRepository {
 	return &RewardsRepository{
 		db: dbConnection,
 	}
+}
+
+func (r *RewardsRepository) FindOneByUserIdAndBranchId(userID string, branchID string) (res *models.Rewards, err error) {
+	if err = r.db.Where("user_id = ? AND branch_id = ?", userID, branchID).First(&res).Error; err != nil {
+		return nil, gorm.ErrRecordNotFound
+	}
+	return res, nil
 }
 
 func (r *RewardsRepository) CreateRewards(data *models.Rewards) (res *models.Rewards, err error) {
@@ -43,4 +51,20 @@ func (r *RewardsRepository) FindOneById(id string) (res *models.Rewards, err err
 	}
 
 	return res, nil
+}
+
+func (r *RewardsRepository) FindOne(userID, branchID, rewardType string) (res *models.Rewards, err error) {
+	if err = r.db.Where("user_id = ? AND branch_id = ? AND reward_type = ?", userID, branchID, rewardType).First(&res).Error; err != nil {
+		return nil, errors.New("reward balance not found")
+	}
+	return res, nil
+}
+
+func (r *RewardsRepository) Update(data *models.Rewards) (res *models.Rewards, err error) {
+	err = r.db.Save(&data).Error
+	if err != nil {
+		return nil, fmt.Errorf("error updating reward")
+	}
+
+	return data, nil
 }
