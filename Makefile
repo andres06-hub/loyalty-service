@@ -20,7 +20,7 @@ coverage:
 	go tool cover -func=$(COVERAGE_FILE)
 
 coverage-html: coverage
-	go tool cover -html=$(COVERAGE_FILE) -o $(COVERAGE_HTML)
+	go tool cover -html=$(COVERAGE_FILE) -o ./coverage/$(COVERAGE_HTML)
 	@echo "Coverage report generated: $(COVERAGE_HTML)"
 
 clean:
