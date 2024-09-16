@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS rewards (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
-  branch_id UUID,
+  branch_id UUID DEFAULT NULL,
   reward_type VARCHAR(50), -- 'points' or 'cashback'
   reward_value DECIMAL(10, 2),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::TEXT, now()) NOT NULL,
