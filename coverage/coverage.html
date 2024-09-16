@@ -440,8 +440,8 @@ func GetCampaignsHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="
 		<pre class="file" id="file7" style="display: none">package handlers
 
 import (
-        "fmt"
         "net/http"
+        "strings"
         "time"
 
         update "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/update"
@@ -450,13 +450,10 @@ import (
 
 func UpdateCampaignHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class="cov8" title="1">{
         return func(w http.ResponseWriter, r *http.Request) </span><span class="cov8" title="1">{
-                body := &amp;update.UpdateCampaignDto{}
-                campaignId := "bdbc9716-217b-427e-80d0-a1e5f09bd3c4"
-                // var params struct {
-                //         CampaignId string `path:"campaignId"`
-                // }
+                var body update.UpdateCampaignDto
 
-                if err := ctx.Http.Parsers.Body.Parse(r, &amp;body); err != nil </span><span class="cov0" title="0">{
+                err := ctx.Http.Parsers.Body.Parse(r, &amp;body)
+                if err != nil </span><span class="cov0" title="0">{
                         ctx.Http.Responses.Error.
                                 WithTimestamp(int64(time.Now().Unix())).
                                 WithMessage(err.Error()).
@@ -464,30 +461,11 @@ func UpdateCampaignHandler(ctx *svc.ServiceContext) http.HandlerFunc <span class
                                 Build(w)
                         return
                 }</span>
-                <span class="cov8" title="1">fmt.Println("BODY:::", body)
 
-                // err := httpx.Parse(r, &amp;params)
-                // if err != nil {
-                //         ctx.Http.Responses.Error.
-                //                 WithTimestamp(int64(time.Now().Unix())).
-                //                 WithMessage(err.Error()).
-                //                 WithCode(http.StatusBadRequest).
-                //                 Build(w)
-                //         return
-                // }
-
-                // if params.CampaignId == "" {
-                //         ctx.Http.Responses.Error.
-                //                 WithTimestamp(int64(time.Now().Unix())).
-                //                 WithMessage("Missing campaignId parameter").
-                //                 WithCode(http.StatusBadRequest).
-                //                 Build(w)
-                //         return
-                // }
-                // fmt.Println("PARAMS:::", params)
+                <span class="cov8" title="1">campaignId := strings.Split(r.URL.String(), "/")[3]
 
                 l := update.NewUpdate(r.Context(), ctx)
-                res, err := l.Update(campaignId, *body)
+                res, err := l.Update(campaignId, body)
                 if err != nil </span><span class="cov0" title="0">{
                         ctx.Http.Responses.Error.
                                 WithTimestamp(int64(time.Now().Unix())).
