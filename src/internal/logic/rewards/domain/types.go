@@ -1,13 +1,13 @@
 package domain
 
 type RewardsAccumulateResponse struct {
-	RewardsEarned   float64
-	RewardsType     string
-	CampaignApplied bool
+	RewardEarned    float64 `json:"rewardEarned"`
+	RewardType      string  `json:"rewardType"`
+	CampaignApplied bool    `json:"campaignApplied"`
 }
 
 type RewardRedemptionResponse struct {
-	RewardType         string  `json:"rewardType"`
-	RewardRedeemed     float64 `json:"rewardRedeemed"`
-	CurrentRewardValue float64 `json:"currentReward"`
+	RewardType     string  `json:"rewardType"`
+	RewardRedeemed float64 `json:"rewardRedeemed"`
+	CurrentReward  float64 `json:"currentReward"`
 }

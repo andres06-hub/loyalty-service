@@ -105,8 +105,8 @@ func (a *accumulate) AccumulateReward(data *domain.RewardsDto) (*domain.RewardsA
 	}
 
 	return &domain.RewardsAccumulateResponse{
-		RewardsEarned:   rewardEarned,
-		RewardsType:     rewardType,
+		RewardEarned:    rewardEarned,
+		RewardType:      rewardType,
 		CampaignApplied: campaign != nil,
 	}, nil
 }

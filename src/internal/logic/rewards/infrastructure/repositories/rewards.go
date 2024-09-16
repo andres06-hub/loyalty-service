@@ -61,7 +61,9 @@ func (r *RewardsRepository) FindOne(userID, branchID, rewardType string) (res *m
 }
 
 func (r *RewardsRepository) Update(data *models.Rewards) (res *models.Rewards, err error) {
-	err = r.db.Save(&data).Error
+	err = r.db.Model(&models.Rewards{}).Where("id = ?", data.Id).Updates(map[string]interface{}{
+		"reward_value": data.RewardValue,
+	}).Error
 	if err != nil {
 		return nil, fmt.Errorf("error updating reward")
 	}

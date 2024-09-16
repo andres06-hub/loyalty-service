@@ -54,8 +54,8 @@ func (r *reedem) RedeemReward(data *domain.RewardsRedeemDto) (*domain.RewardRede
 	}
 
 	return &domain.RewardRedemptionResponse{
-		RewardType:         data.RewardType,
-		RewardRedeemed:     data.RewardValue,
-		CurrentRewardValue: reward.RewardValue,
+		RewardType:     data.RewardType,
+		RewardRedeemed: data.RewardValue,
+		CurrentReward:  reward.RewardValue,
 	}, nil
 }
