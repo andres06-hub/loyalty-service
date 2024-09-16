@@ -18,6 +18,6 @@ type (
 	}
 
 	redeemReward interface {
-		RedeemReward(data *domain.RewardsRedeemDto) (string, error)
+		RedeemReward(data *domain.RewardsRedeemDto) (*domain.RewardRedemptionResponse, error)
 	}
 )

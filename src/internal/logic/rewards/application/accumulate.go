@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"time"
 
 	"github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
 	"github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain/models"
@@ -38,8 +39,7 @@ func (a *accumulate) AccumulateReward(data *domain.RewardsDto) (*domain.RewardsA
 		return nil, err
 	}
 
-	// currentDate := time.Now().Format("2006-01-02")
-	currentDate := "2024-05-16"
+	currentDate := time.Now().Format("2006-01-02")
 
 	rewardEarned := 0.0
 	rewardType := "points"
@@ -47,15 +47,17 @@ func (a *accumulate) AccumulateReward(data *domain.RewardsDto) (*domain.RewardsA
 
 	if campaign != nil {
 		// Validate if campaign is active
-		if currentDate < campaign.StartDate || currentDate > campaign.EndDate {
+		if currentDate < campaign.StartDate.String() || currentDate > campaign.EndDate.String() {
 			return nil, errors.New("campaign not active")
 		}
 		campaignId.Valid = true
 		campaignId.String = campaign.Id
 		if campaign.BonusType == "double" {
-			rewardEarned = (float64(data.PurchaseAmount) / 1000) * 2
+			rewardEarned = (float64(data.PurchaseAmount) / 1000) * campaign.BonusValue
 		} else if campaign.BonusType == "percentage" {
-			rewardEarned = (float64(data.PurchaseAmount) / 1000) * (1 + campaign.BonusValue)
+			if data.PurchaseAmount > campaign.MinPurchase {
+				rewardEarned = (float64(data.PurchaseAmount) / 1000) * (1 + campaign.BonusValue)
+			}
 		}
 	} else {
 		rewardEarned = float64(data.PurchaseAmount) / 1000
