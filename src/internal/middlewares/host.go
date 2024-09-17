@@ -1,6 +1,7 @@
 package middlewares
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 	"strings"
@@ -60,6 +61,7 @@ func (mpv *MiddlewareOrigin) HostValidatorMiddleware() func(next http.Handler) h
 }
 
 func (mpv *MiddlewareOrigin) isHostAllowed(host string) bool {
+	fmt.Println("HOST:", host)
 	allowedHost := strings.Split(os.Getenv("ALLOWED_HOSTS"), ",")
 
 	for _, h := range allowedHost {

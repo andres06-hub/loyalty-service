@@ -1,0 +1,65 @@
+basePath: /api
+host: localhost:8888
+info:
+  contact: {}
+  description: Esta es la documentación de la API de Loyalty Service
+  title: Loyalty Service API Documentation
+  version: "1.0"
+paths:
+  /campaigns:
+    get:
+      consumes:
+      - application/json
+      description: Get all campaigns
+      responses:
+        "200":
+          description: Ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "503":
+          description: Service Unavailable
+          schema:
+            type: string
+      summary: Get all campaigns
+      tags:
+      - campaigns
+  /campaigns/:campaignId:
+    put:
+      consumes:
+      - application/json
+      description: Get all campaigns
+      parameters:
+      - description: ID of the campaign to update
+        in: path
+        name: campaignId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Ok
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            type: string
+        "503":
+          description: Service Unavailable
+          schema:
+            type: string
+      summary: Get all campaigns
+      tags:
+      - campaigns
+swagger: "2.0"

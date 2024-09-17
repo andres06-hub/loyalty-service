@@ -3,6 +3,7 @@ package campaigns
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
@@ -11,6 +12,7 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/andres06-hub/loyalty-service/src/internal/config"
+	uc "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/application/update"
 	cm "github.com/andres06-hub/loyalty-service/src/internal/logic/campaigns/infrastructure/handlers"
 	"github.com/andres06-hub/loyalty-service/src/internal/svc"
 	"github.com/stretchr/testify/assert"
@@ -43,16 +45,16 @@ func TestUpdateCampaign__Unit(t *testing.T) {
 		assr := assert.New(t)
 		svcCtx := svc.NewServiceContext(config.Config{}, db)
 
-		body := map[string]interface{}{
-			"startDate":  "2024-09-15",
-			"endDate":    "2024-09-20",
-			"bonusType":  "double",
-			"bonusValue": 2.0,
+		var body uc.UpdateCampaignDto = uc.UpdateCampaignDto{
+			StartDate:  "2024-09-15",
+			EndDate:    "2024-09-20",
+			BonusType:  "double",
+			BonusValue: 2.0,
 		}
 
-		bodyBytes, _ := json.Marshal(body)
+		bodyBytes, _ := json.Marshal(&body)
 
-		mockReq := httptest.NewRequest("PUT", "/campaigns/1", bytes.NewReader(bodyBytes))
+		mockReq := httptest.NewRequest("PUT", "/api/campaigns/bdbc9716-217b-427e-80d0-a1e5f09bd3c4", bytes.NewReader(bodyBytes))
 		rr := httptest.NewRecorder()
 
 		cm.UpdateCampaignHandler(svcCtx).ServeHTTP(rr, mockReq)
@@ -81,6 +83,7 @@ func TestUpdateCampaign__Unit(t *testing.T) {
 			"createdAt":   "2024-09-14",
 			"minPurchase": 1.0,
 		}
+		fmt.Println("=>", campaigns)
 		assr.Equal(dataExpected, campaigns)
 
 		if err := mock.ExpectationsWereMet(); err != nil {

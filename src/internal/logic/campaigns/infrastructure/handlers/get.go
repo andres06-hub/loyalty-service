@@ -8,6 +8,15 @@ import (
 	"github.com/andres06-hub/loyalty-service/src/internal/svc"
 )
 
+// @Tags			campaigns
+// @Router			/campaigns [get]
+// @Summary		Get all campaigns
+// @Description	Get all campaigns
+// @Accept			json
+// @Success		200	{object}	string	"Ok"
+// @Failure		400	{object}	string	"Bad Request"
+// @Failure		401	{object}	string	"Unauthorized"
+// @Failure		503	{object}	string	"Service Unavailable"
 func GetCampaignsHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		branchId := r.URL.Query().Get("branchId")
