@@ -21,7 +21,7 @@ INSERT INTO rewards (id, user_id, branch_id, reward_type, reward_value, created_
   ('4b060ed1-e462-4879-8fd5-1f3687030ccc', '1155b711-503a-48c5-922c-8c8ed4c3e3c3', '39afa126-5a23-486c-ad36-1825a111e348', 'cashback', 50, CURRENT_TIMESTAMP), -- María Gómez tiene 50 en cashback en Texaco Sucursal 2
   ('932a0f09-60fd-480c-b89c-7e02eebef348', '08644620-133a-411a-988c-3f714fec5020', '4f747ef6-0a13-4af8-8bab-65f9cf580836', 'points', 200, CURRENT_TIMESTAMP);  -- Carlos López tiene 200 puntos en Supermercado Leal
 --
-INSERT INTO purchases (user_id, branch_id, purchase_amount, reward_earned, reward_type, campaign_id, created_at) VALUES
-  ('79f1ed5d-fb02-480f-8430-caabf42ce630', '51968d08-9018-4a5c-94e6-9c7181359ef7', 20000, 40, 'points', 'bdbc9716-217b-427e-80d0-a1e5f09bd3c4', CURRENT_TIMESTAMP), -- Juan Pérez compró por 20,000 y ganó 40 puntos (por campaña)
-  ('1155b711-503a-48c5-922c-8c8ed4c3e3c3', '39afa126-5a23-486c-ad36-1825a111e348', 25000, 32.5, 'cashback', '1434f164-627a-4036-920e-2be28dc00bee', CURRENT_TIMESTAMP), -- María Gómez compró por 25,000 y ganó 32.5 cashback (por campaña)
-  ('08644620-133a-411a-988c-3f714fec5020', '4f747ef6-0a13-4af8-8bab-65f9cf580836', 30000, 60, 'points', NULL, CURRENT_TIMESTAMP); -- Carlos López compró por 30,000 y ganó 60 puntos (sin campaña)
+INSERT INTO purchases (id, user_id, branch_id, purchase_amount, reward_earned, reward_type, campaign_id, created_at) VALUES
+  ('5d4ae761-ea83-4215-a9c4-ecbd66f95027', '79f1ed5d-fb02-480f-8430-caabf42ce630', '51968d08-9018-4a5c-94e6-9c7181359ef7', 20000, 40, 'points', 'bdbc9716-217b-427e-80d0-a1e5f09bd3c4', CURRENT_TIMESTAMP), -- Juan Pérez compró por 20,000 y ganó 40 puntos (por campaña)
+  ('b836c0e1-bd3e-4544-b388-e35c7ed768dd', '1155b711-503a-48c5-922c-8c8ed4c3e3c3', '39afa126-5a23-486c-ad36-1825a111e348', 25000, 32.5, 'cashback', '1434f164-627a-4036-920e-2be28dc00bee', CURRENT_TIMESTAMP), -- María Gómez compró por 25,000 y ganó 32.5 cashback (por campaña)
+  ('911c79e9-c025-4aab-b62a-efab9d733175', '08644620-133a-411a-988c-3f714fec5020', '4f747ef6-0a13-4af8-8bab-65f9cf580836', 30000, 60, 'points', NULL, CURRENT_TIMESTAMP); -- Carlos López compró por 30,000 y ganó 60 puntos (sin campaña)

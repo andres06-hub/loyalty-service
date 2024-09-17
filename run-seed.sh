@@ -14,6 +14,7 @@ if [ $# -eq 0 ] || [ $1 == "--help" ] || [ $1 == "-h" ] || [ $1 == "help" ] || [
         APP_DATABASE_HOST: Postgres host
         APP_DATABASE_NAME: Postgres database name
         APP_DATABASE_USER: Postgres user
+        APP_DATABASE_SSLMODE: Postgres sslmode
     '
     exit
 fi
@@ -25,9 +26,10 @@ MODE=$1
 : "${APP_DATABASE_HOST:?APP_DATABASE_HOST is not set}"
 : "${APP_DATABASE_NAME:?APP_DATABASE_NAME is not set}"
 : "${APP_DATABASE_USER:?APP_DATABASE_USER is not set}"
+: "${APP_DATABASE_SSLMODE:?APP_DATABASE_SSLMODE is not set}"
 
 if [ $MODE == "dev" ]; then
-    CONN_STRING=postgresql://$APP_DATABASE_USER:$APP_DATABASE_PASSWORD@$APP_DATABASE_HOST/$APP_DATABASE_NAME
+    CONN_STRING=postgresql://$APP_DATABASE_USER:$APP_DATABASE_PASSWORD@$APP_DATABASE_HOST/$APP_DATABASE_NAME?sslmode=$APP_DATABASE_SSLMODE
 else
     echo "Error: unrecognized option \"$MODE\"."
     exit

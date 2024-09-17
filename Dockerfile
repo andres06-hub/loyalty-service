@@ -13,7 +13,9 @@ ADD go.sum .
 RUN go mod tidy -compat=1.22.3 && go mod download
 COPY . .
 COPY src/etc /app/etc
+COPY migrations /app/migrations
 RUN go build -ldflags="-s -w" -o /app/bin src/main.go
+RUN ls
 
 
 FROM scratch
@@ -25,5 +27,6 @@ ENV TZ America/Bogota
 WORKDIR /app
 COPY --from=builder /app/etc /app/etc
 COPY --from=builder /app/bin /app/bin
+COPY --from=builder /app/migrations /app/migrations
 
-CMD ["./bin", "-f", "etc/definition.yaml"]
+CMD ["./bin", "-f", "etc/definition.yaml", "-m", "migrations"]
