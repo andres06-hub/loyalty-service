@@ -9,6 +9,10 @@
    ```sh
    ./start-environment.sh upb
    ```
+   - Y para tumbar el ambiente ejecute
+   ```sh
+   ./start-environment.sh down
+   ```
 
 > **Importante**: Los seeders tendran fechas en las campañas viejas, esto para primero validar y ver que se realiza la validaicon de ACTIVACION de campaña
 >

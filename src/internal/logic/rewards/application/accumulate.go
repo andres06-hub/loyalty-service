@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"math"
 	"time"
 
 	"github.com/andres06-hub/loyalty-service/src/internal/logic/rewards/domain"
@@ -56,7 +57,7 @@ func (a *accumulate) AccumulateReward(data *domain.RewardsDto) (*domain.RewardsA
 			rewardEarned = (float64(data.PurchaseAmount) / 1000) * campaign.BonusValue
 		} else if campaign.BonusType == "percentage" {
 			if data.PurchaseAmount > campaign.MinPurchase {
-				rewardEarned = (float64(data.PurchaseAmount) / 1000) * (1 + campaign.BonusValue)
+				rewardEarned = math.Round((float64(data.PurchaseAmount) / 1000) * (1 + campaign.BonusValue))
 			}
 		}
 	} else {
