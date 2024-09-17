@@ -94,7 +94,7 @@ Esto correra los test, y la covertura y generara una ruta local para ver las cov
 ## Postman
 Aca se encuentran los endpoints de loyalty
 
-[Postman](https://interstellar-desert-612344.postman.co/workspace/PUBLIC~6bd755c8-61b2-47e7-bd60-a57e277c02ef/collection/28382910-60d64557-1816-4328-9ea2-96fac161341b?action=share&creator=28382910)
+[Postman](https://www.postman.com/interstellar-desert-612344/workspace/publicv2/collection/28382910-60d64557-1816-4328-9ea2-96fac161341b?action=share&creator=28382910)
 
 ## Technologies and tools
 
