@@ -107,3 +107,37 @@ Aca se encuentran los endpoints de loyalty
 - Github-Actions
 
 ## Swagger
+
+## Diagramas
+### Acumulación de Recompensas - Diagrama de Secuencia
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant API
+    participant RewardsService
+    participant CampaignsRepository
+    participant RewardsRepository
+    participant PurchasesRepository
+    
+    User->>+API: Request Accumulate Reward (userId, branchId, purchaseAmount)
+    API->>+RewardsService: AccumulateReward(data)
+    RewardsService->>+CampaignsRepository: FindOneByBranchId(branchId)
+    CampaignsRepository-->>-RewardsService: Return campaign details (if active)
+
+    alt Campaign Active
+        RewardsService->>RewardsService: Calculate reward based on campaign
+    else No Campaign
+        RewardsService->>RewardsService: Calculate reward based on default rule
+    end
+
+    RewardsService->>+RewardsRepository: CreateRewards(newRewardData)
+    RewardsRepository-->>-RewardsService: Reward created
+
+    RewardsService->>+PurchasesRepository: CreatePurchase(newPurchaseData)
+    PurchasesRepository-->>-RewardsService: Purchase created
+
+    RewardsService-->>-API: Return RewardsAccumulateResponse
+
+    API-->>-User: Send response (reward earned, campaign applied)
+```
