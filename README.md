@@ -141,3 +141,26 @@ sequenceDiagram
 
     API-->>-User: Send response (reward earned, campaign applied)
 ```
+
+### Get campaigns
+```mermaid
+sequenceDiagram
+    participant User
+    participant API
+    participant CampaignService
+    participant CampaignRepository
+
+    User->>+API: Request Get Campaigns (branchId: optional)
+    API->>+CampaignService: GetCampaigns(branchId)
+
+    alt BranchId provided
+        CampaignService->>+CampaignRepository: FindCampaignsByBranchId(branchId)
+        CampaignRepository-->>-CampaignService: Return campaigns for branchId
+    else No BranchId provided
+        CampaignService->>+CampaignRepository: FindAllCampaigns()
+        CampaignRepository-->>-CampaignService: Return all campaigns
+    end
+
+    CampaignService-->>-API: Return campaigns (filtered by branchId or all)
+    API-->>-User: Send campaigns to user
+```
