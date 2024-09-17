@@ -2,7 +2,6 @@
 
 ## Levantar server
 
-
 1. Crear el archivo .env (colocar toas las envs que hay en el archivo **.env.example**)
 2. Primero se debe levantar el environment
    - Aca corren migraciones y seeders si no hay nada en la DB (LA DB ya es una que esta en un cluster, se suminstrara la URI para observas los registros)
@@ -96,5 +95,15 @@ Esto correra los test, y la covertura y generara una ruta local para ver las cov
 Aca se encuentran los endpoints de loyalty
 
 [Postman](https://interstellar-desert-612344.postman.co/workspace/PUBLIC~6bd755c8-61b2-47e7-bd60-a57e277c02ef/collection/28382910-60d64557-1816-4328-9ea2-96fac161341b?action=share&creator=28382910)
+
+## Technologies and tools
+
+- Framework: [go-zero](https://go-zero.dev/en/docs/tasks)
+- DB: [Postgres](https://www.postgresql.org/)
+- ORM: [Gorm](https://gorm.io/) 
+- Docker
+- SH
+- Makefile
+- Github-Actions
 
 ## Swagger
