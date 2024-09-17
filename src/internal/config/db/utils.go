@@ -20,7 +20,6 @@ func RunMigrations() {
 	dbUri := os.Getenv("DATABASE_URL")
 
 	absMigrationsPath, err := filepath.Abs(*migrationsPath)
-	fmt.Println(absMigrationsPath)
 	if err != nil {
 		log.Fatalf("Failed to get absolute path: %v", err)
 	}

@@ -4,7 +4,7 @@ run-server:
 	source ./.env && cd ./src && go run ./main.go -f ./etc/definition.yaml
 
 swag:
-	swag fmt && swag init -g src/main.go -d src -o ./src/docs
+	swag fmt && swag init -g main.go -d ./src -o src/docs
 
 # Variables
 COVERAGE_FILE := coverage.out

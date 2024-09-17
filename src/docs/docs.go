@@ -106,11 +106,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8888",
+	Host:             "localhost:8080",
 	BasePath:         "/api",
 	Schemes:          []string{},
-	Title:            "Loyalty Service API Documentation",
-	Description:      "Esta es la documentación de la API de Loyalty Service",
+	Title:            "Loyalty Service API",
+	Description:      "This is a loyalty service server.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

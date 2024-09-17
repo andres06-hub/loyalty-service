@@ -1,12 +1,12 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Esta es la documentación de la API de Loyalty Service",
-        "title": "Loyalty Service API Documentation",
+        "description": "This is a loyalty service server.",
+        "title": "Loyalty Service API",
         "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:8888",
+    "host": "localhost:8080",
     "basePath": "/api",
     "paths": {
         "/campaigns": {

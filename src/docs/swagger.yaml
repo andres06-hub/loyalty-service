@@ -1,9 +1,9 @@
 basePath: /api
-host: localhost:8888
+host: localhost:8080
 info:
   contact: {}
-  description: Esta es la documentación de la API de Loyalty Service
-  title: Loyalty Service API Documentation
+  description: This is a loyalty service server.
+  title: Loyalty Service API
   version: "1.0"
 paths:
   /campaigns:

@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -21,29 +20,23 @@ func RegisterHandlers(server *rest.Server, ctx *svc.ServiceContext) {
 	routes = append(routes, rewards.GetRewardsRoutes(ctx)...)
 
 	docs.SwaggerInfo.BasePath = apiPrefix
+
 	swaggerHandler := httpSwagger.Handler(
-		httpSwagger.URL("/swagger/swagger.json"),
+		httpSwagger.URL("/swagger/doc.json"),
 		httpSwagger.DeepLinking(true),
 		httpSwagger.DocExpansion("none"),
 		httpSwagger.DomID("swagger-ui"),
 	)
 
-	dir := http.Dir("/home/as06/data/code/golang/loyalty-service/src/docs")
-	fmt.Println("DIR::::", dir)
-
-	server.AddRoute(
-		rest.Route{
-			Method:  http.MethodGet,
-			Path:    "/swagger/{any:*}",
-			Handler: http.StripPrefix("/swagger", http.FileServer(dir)).ServeHTTP,
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/swagger/*any",
+				Handler: swaggerHandler,
+			},
 		},
 	)
-
-	server.AddRoute(rest.Route{
-		Method:  http.MethodGet,
-		Path:    "/swagger-ui",
-		Handler: swaggerHandler,
-	})
 
 	for _, route := range routes {
 		if !strings.HasPrefix(route.Path, "/swagger") {
@@ -51,12 +44,4 @@ func RegisterHandlers(server *rest.Server, ctx *svc.ServiceContext) {
 		}
 		server.AddRoute(route)
 	}
-}
-
-func test() http.HandlerFunc {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("TEST")
-
-		w.Write([]byte("TEST"))
-	})
 }

@@ -10,6 +10,15 @@ import (
 	"github.com/andres06-hub/loyalty-service/src/internal/svc"
 )
 
+// @Tags			rewards
+// @Router		/rewards/redeem [post]
+// @Summary		Get all campaigns
+// @Description	redeem rewards
+// @Accept			json
+// @Success		200			{object}	string	"Ok"
+// @Failure		400			{object}	string	"Bad Request"
+// @Failure		401			{object}	string	"Unauthorized"
+// @Failure		503			{object}	string	"Service Unavailable"
 func RedeemRewardHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		data := &domain.RewardsRedeemDto{}

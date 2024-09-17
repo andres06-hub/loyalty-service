@@ -9,6 +9,15 @@ import (
 	"github.com/andres06-hub/loyalty-service/src/internal/svc"
 )
 
+// @Tags			rewards
+// @Router		/rewards [post]
+// @Summary		Accumulate rewards
+// @Description	Add rewards to the user
+// @Accept			json
+// @Success		200			{object}	string	"Ok"
+// @Failure		400			{object}	string	"Bad Request"
+// @Failure		401			{object}	string	"Unauthorized"
+// @Failure		503			{object}	string	"Service Unavailable"
 func AccumulateRewardHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		data := &domain.RewardsDto{}

@@ -6,6 +6,7 @@ import (
 	"log"
 	"time"
 
+	_ "github.com/andres06-hub/loyalty-service/src/docs"
 	"github.com/andres06-hub/loyalty-service/src/internal/config"
 	"github.com/andres06-hub/loyalty-service/src/internal/config/db"
 	"github.com/andres06-hub/loyalty-service/src/internal/handler"
@@ -19,6 +20,11 @@ import (
 
 var configFile = flag.String("f", "etc/definition.yaml", "the config file")
 
+// @title			Loyalty Service API
+// @version		1.0
+// @description	This is a loyalty service server.
+// @host			localhost:8080
+// @BasePath		/api
 func main() {
 	flag.Parse()
 
@@ -45,7 +51,7 @@ func main() {
 		server.Start()
 	}()
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(2 * time.Second)
 
 	select {}
 }
